@@ -1,108 +1,201 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorpresa Fotos San Valentín</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  min-height: 100vh;
-  background-color: #000;
-  color: #fff;
-  overflow: hidden;
-  font-family: "Comic Neue", cursive;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
+    body {
+      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
+      font-family: "Comic Neue", cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-#encabezado-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 60px;
-  text-align: center;
-  z-index: 2;
-}
+    #encabezado-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 60px;
+      text-align: center;
+      z-index: 2;
+      width: 100%;
+    }
 
-#brillo {
-  font-size: 60px;
-  font-family: "Great Vibes", cursive;
-  color: #ff69b4;
-  text-shadow: 0 0 20px #ff69b4;
-  animation: pulso 3s infinite;
-}
+    #brillo {
+      font-size: 40px;
+      font-family: "Great Vibes", cursive;
+      color: #ff69b4;
+      text-shadow: 0 0 20px #ff69b4;
+      animation: pulso 3s infinite;
+    }
 
-@keyframes pulso {
-  0%, 100% { text-shadow: 0 0 10px #ff69b4; }
-  50% { text-shadow: 0 0 30px #ff1493; }
-}
+    @keyframes pulso {
+      0%, 100% { text-shadow: 0 0 10px #ff69b4; }
+      50% { text-shadow: 0 0 30px #ff1493; }
+    }
 
-.galeria {
-  --d: 10s;
-  display: grid;
-  place-items: center;
-  width: 220px;
-  z-index: 2;
-}
+    .galeria {
+      --d: 10s;
+      display: grid;
+      place-items: center;
+      width: 90vw;
+      max-width: 300px;
+      z-index: 2;
+      position: relative;
+    }
 
-.galeria > img {
-  grid-area: 1/1;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 10px solid #ff69b4;
-  box-shadow: 0 0 10px #ff69b4;
-  animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
-}
+    .galeria > img {
+      grid-area: 1/1;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 10px solid #ff69b4;
+      box-shadow: 0 0 10px #ff69b4;
+      animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+    }
 
-.galeria img:last-child {
-  animation-name: slide, z-order-last;
-}
+    .galeria img:last-child {
+      animation-name: slide, z-order-last;
+    }
 
-.galeria > img:nth-child(1) { animation-delay: calc(0 * var(--d)); --r: 16deg; }
-.galeria > img:nth-child(2) { animation-delay: calc(-0.2 * var(--d)); --r: -1deg; }
-.galeria > img:nth-child(3) { animation-delay: calc(-0.4 * var(--d)); --r: -19deg; }
-.galeria > img:nth-child(4) { animation-delay: calc(-0.6 * var(--d)); --r: 6deg; }
-.galeria > img:nth-child(5) { animation-delay: calc(-0.8 * var(--d)); --r: -8deg; }
+    .galeria > img:nth-child(1) { animation-delay: calc(0 * var(--d)); --r: 8deg; }
+    .galeria > img:nth-child(2) { animation-delay: calc(-0.2 * var(--d)); --r: -4deg; }
+    .galeria > img:nth-child(3) { animation-delay: calc(-0.4 * var(--d)); --r: 10deg; }
+    .galeria > img:nth-child(4) { animation-delay: calc(-0.6 * var(--d)); --r: -6deg; }
+    .galeria > img:nth-child(5) { animation-delay: calc(-0.8 * var(--d)); --r: 4deg; }
 
-@keyframes slide {
-  10% { transform: translateX(120%) rotate(var(--r)); }
-  0%, 100%, 20% { transform: translateX(0%) rotate(var(--r)); }
-}
+    @keyframes slide {
+      10% { transform: translateX(120%) rotate(var(--r)); }
+      0%, 100%, 20% { transform: translateX(0%) rotate(var(--r)); }
+    }
 
-@keyframes z-order {
-  10%, 20% { z-index: 1; }
-  80% { z-index: 2; }
-}
+    @keyframes z-order {
+      10%, 20% { z-index: 1; }
+      80% { z-index: 2; }
+    }
 
-@keyframes z-order-last {
-  10%, 20% { z-index: 1; }
-  90% { z-index: 2; }
-}
+    @keyframes z-order-last {
+      10%, 20% { z-index: 1; }
+      90% { z-index: 2; }
+    }
 
-@media only screen and (max-width: 600px) {
-  #brillo {
-    font-size: 32px;
-  }
+    #lluviaTeAmo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-  .galeria {
-    width: 150px;
-  }
-}
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
 
-#lluviaTeAmo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-}
+    @media only screen and (max-width: 600px) {
+      #brillo {
+        font-size: 30px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+</head>
+<body>
 
-@keyframes flotar {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
-}
+  <canvas id="lluviaTeAmo"></canvas>
+
+  <div id="encabezado-container">
+    <div id="brillo">¡Amarte es bonito, y saber que a mí también me amas es especial! 💞</div>
+  </div>
+
+  <div class="galeria">
+    <img src="1.jpg" />
+    <img src="2.jpg" />
+    <img src="3.jpg" />
+    <img src="4.jpg" />
+    <img src="5.jpg" />
+  </div>
+
+  <script>
+    const canvas = document.getElementById("lluviaTeAmo");
+    const ctx = canvas.getContext("2d");
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    let mensajes = [];
+    const letras = ["Te amo", "💖", "❤️"];
+    for (let i = 0; i < 100; i++) {
+      mensajes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        speed: Math.random() * 2 + 1,
+        text: letras[Math.floor(Math.random() * letras.length)],
+        size: Math.random() * 20 + 10,
+      });
+    }
+
+    function animarLluvia() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(255, 105, 180, 0.9)";
+      mensajes.forEach((m) => {
+        ctx.font = `${m.size}px Great Vibes, cursive`;
+        ctx.fillText(m.text, m.x, m.y);
+        m.y += m.speed;
+        if (m.y > height) {
+          m.y = -20;
+          m.x = Math.random() * width;
+        }
+      });
+      requestAnimationFrame(animarLluvia);
+    }
+    animarLluvia();
+
+    window.addEventListener("resize", () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    });
+
+    function crearCorazon(x, y) {
+      const heart = document.createElement("div");
+      heart.innerText = "TE amo, me encantas";
+      heart.style.position = "fixed";
+      heart.style.left = x + "px";
+      heart.style.top = y + "px";
+      heart.style.pointerEvents = "none";
+      heart.style.fontSize = "24px";
+      heart.style.animation = "flotar 1s ease-out forwards";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    }
+
+    document.addEventListener("click", function (e) {
+      crearCorazon(e.clientX, e.clientY);
+    });
+
+    document.addEventListener("touchstart", function (e) {
+      const touch = e.touches[0];
+      crearCorazon(touch.clientX, touch.clientY);
+    });
+  </script>
+
+</body>
+</html>
